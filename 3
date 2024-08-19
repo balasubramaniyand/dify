@@ -1,0 +1,149 @@
+
+InternalError
+
+sqlalchemy.exc.InternalError: (psycopg2.errors.InFailedSqlTransaction) current transaction is aborted, commands ignored until end of transaction block
+
+[SQL: SELECT organizations.updated_at AS organizations_updated_at, organizations.created_at AS organizations_created_at, organizations.id AS organizations_id, organizations.name AS organizations_name, organizations.slug AS organizations_slug, organizations.settings AS organizations_settings 
+FROM organizations 
+WHERE organizations.slug = %(slug_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'slug_1': 'default', 'param_1': 1}]
+(Background on this error at: http://sqlalche.me/e/13/2j85)
+Traceback (most recent call last)
+
+    File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+
+    self.dialect.do_execute(
+
+    File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 608, in do_execute
+
+    cursor.execute(statement, parameters)
+
+    The above exception was the direct cause of the following exception:
+    File "/usr/local/lib/python3.10/site-packages/flask/app.py", line 2213, in __call__
+
+    return self.wsgi_app(environ, start_response)
+
+    File "/usr/local/lib/python3.10/site-packages/werkzeug/middleware/proxy_fix.py", line 182, in __call__
+
+    return self.app(environ, start_response)
+
+    File "/usr/local/lib/python3.10/site-packages/flask/app.py", line 2193, in wsgi_app
+
+    response = self.handle_exception(e)
+
+    File "/usr/local/lib/python3.10/site-packages/flask_restful/__init__.py", line 298, in error_router
+
+    return original_handler(e)
+
+    File "/usr/local/lib/python3.10/site-packages/flask/app.py", line 2190, in wsgi_app
+
+    response = self.full_dispatch_request()
+
+    File "/usr/local/lib/python3.10/site-packages/flask/app.py", line 1486, in full_dispatch_request
+
+    rv = self.handle_user_exception(e)
+
+    File "/usr/local/lib/python3.10/site-packages/flask_restful/__init__.py", line 298, in error_router
+
+    return original_handler(e)
+
+    File "/usr/local/lib/python3.10/site-packages/flask/app.py", line 1484, in full_dispatch_request
+
+    rv = self.dispatch_request()
+
+    File "/usr/local/lib/python3.10/site-packages/flask/app.py", line 1469, in dispatch_request
+
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+
+    File "/usr/local/lib/python3.10/site-packages/flask_limiter/extension.py", line 1191, in __inner
+
+    R, flask.current_app.ensure_sync(cast(Callable[P, R], obj))(*a, **k)
+
+    File "/app/redash/handlers/authentication.py", line 214, in login
+
+    show_password_login=current_org.get_setting("auth_password_login_enabled"),
+
+    File "/usr/local/lib/python3.10/site-packages/werkzeug/local.py", line 311, in __get__
+
+    obj = instance._get_current_object()
+
+    File "/usr/local/lib/python3.10/site-packages/werkzeug/local.py", line 515, in _get_current_object
+
+    return get_name(local())
+
+    File "/app/redash/authentication/org_resolving.py", line 18, in _get_current_org
+
+    g.org = Organization.get_by_slug(slug)
+
+    File "/app/redash/models/organizations.py", line 32, in get_by_slug
+
+    return cls.query.filter(cls.slug == slug).first()
+
+    File "/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/query.py", line 3429, in first
+
+    ret = list(self[0:1])
+
+    File "/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/query.py", line 3203, in __getitem__
+
+    return list(res)
+
+    File "/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/query.py", line 3535, in __iter__
+
+    return self._execute_and_instances(context)
+
+    File "/usr/local/lib/python3.10/site-packages/sqlalchemy/orm/query.py", line 3560, in _execute_and_instances
+
+    result = conn.execute(querycontext.statement, self._params)
+
+    File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+
+    return meth(self, multiparams, params)
+
+    File "/usr/local/lib/python3.10/site-packages/sqlalchemy/sql/elements.py", line 298, in _execute_on_connection
+
+    return connection._execute_clauseelement(self, multiparams, params)
+
+    File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1124, in _execute_clauseelement
+
+    ret = self._execute_context(
+
+    File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+
+    self._handle_dbapi_exception(
+
+    File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+
+    util.raise_(
+
+    File "/usr/local/lib/python3.10/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+
+    raise exception
+
+    File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+
+    self.dialect.do_execute(
+
+    File "/usr/local/lib/python3.10/site-packages/sqlalchemy/engine/default.py", line 608, in do_execute
+
+    cursor.execute(statement, parameters)
+
+    sqlalchemy.exc.InternalError: (psycopg2.errors.InFailedSqlTransaction) current transaction is aborted, commands ignored until end of transaction block
+
+    [SQL: SELECT organizations.updated_at AS organizations_updated_at, organizations.created_at AS organizations_created_at, organizations.id AS organizations_id, organizations.name AS organizations_name, organizations.slug AS organizations_slug, organizations.settings AS organizations_settings 
+    FROM organizations 
+    WHERE organizations.slug = %(slug_1)s 
+     LIMIT %(param_1)s]
+    [parameters: {'slug_1': 'default', 'param_1': 1}]
+    (Background on this error at: http://sqlalche.me/e/13/2j85)
+
+The debugger caught an exception in your WSGI application. You can now look at the traceback which led to the error.
+
+To switch between the interactive traceback and the plaintext one, you can click on the "Traceback" headline. From the text traceback you can also create a paste of it. For code execution mouse-over the frame you want to debug and click on the console icon on the right side.
+
+You can execute arbitrary Python code in the stack frames and there are some extra helpers available for introspection:
+
+    dump() shows all variables in the frame
+    dump(obj) dumps all that's known about the object
+
+Brought to you by DON'T PANIC, your friendly Werkzeug powered traceback interpreter.
