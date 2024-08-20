@@ -1,0 +1,51 @@
+server {
+    listen 80;
+    server_name _;
+
+    # Redirect HTTP to HTTPS
+    location / {
+        return 301 https://$host$request_uri;
+    }
+
+    # Placeholder for ACME challenge (e.g., Let's Encrypt)
+    location /.well-known/acme-challenge/ {
+        root /var/www/certbot;
+    }
+}
+
+server {
+    listen 443 ssl;
+    server_name _;
+
+    ssl_certificate /etc/ssl/opexwise.crt;
+    ssl_certificate_key /etc/ssl/opexwise.key;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    ssl_prefer_server_ciphers on;
+    ssl_session_cache shared:SSL:10m;
+    ssl_session_timeout 10m;
+
+    location /console/api {
+        proxy_pass http://api:5001;
+        include proxy.conf;
+    }
+
+    location /api {
+        proxy_pass http://api:5001;
+        include proxy.conf;
+    }
+
+    location /v1 {
+        proxy_pass http://api:5001;
+        include proxy.conf;
+    }
+
+    location /files {
+        proxy_pass http://api:5001;
+        include proxy.conf;
+    }
+
+    location / {
+        proxy_pass http://web:3000;
+        include proxy.conf;
+    }
+}
