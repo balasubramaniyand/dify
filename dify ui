@@ -1,0 +1,34 @@
+alasubramaniyan.d@superset:/var/opt/stable-diffusion-webui$ ls
+CHANGELOG.md           extensions-builtin  modules                requirements_versions.txt    _typos.toml
+CITATION.cff           html                package.json           screenshot.png               webui.bat
+CODEOWNERS             javascript          pyproject.toml         script.js                    webui-macos-env.sh
+configs                launch.py           README.md              scripts                      webui.py
+embeddings             LICENSE.txt         requirements_npu.txt   style.css                    webui.sh
+environment-wsl2.yaml  localizations       requirements-test.txt  test                         webui-user.bat
+extensions             models              requirements.txt       textual_inversion_templates  webui-user.sh
+balasubramaniyan.d@superset:/var/opt/stable-diffusion-webui$ ./webui.sh --api --listen
+
+################################################################
+Install script for stable-diffusion + Web UI
+Tested on Debian 11 (Bullseye), Fedora 34+ and openSUSE Leap 15.4 or newer.
+################################################################
+
+################################################################
+Running on balasubramaniyan.d user
+################################################################
+
+################################################################
+Repo already cloned, using it as install directory
+################################################################
+
+################################################################
+Create and activate python venv
+################################################################
+Error: [Errno 13] Permission denied: '/var/opt/stable-diffusion-webui/venv'
+./webui.sh: line 217: venv/bin/python: No such file or directory
+
+################################################################
+ERROR: Cannot activate python venv, aborting...
+################################################################
+balasubramaniyan.d@superset:/var/opt/stable-diffusion-webui$ 
+
