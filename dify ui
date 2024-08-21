@@ -1,26 +1,79 @@
-bala.d@opexwise-ml2:/home/bala.d/stable-diffusion-webui$ ./webui.sh --api --listen
+stable-diffusion-webui-stable-diffusion-webui-1  | RuntimeError: Torch is not able to use GPU; add --skip-torch-cuda-test to COMMANDLINE_ARGS variable to disable this check
+stable-diffusion-webui-stable-diffusion-webui-1 exited with code 0
+stable-diffusion-webui-stable-diffusion-webui-1  | 
+stable-diffusion-webui-stable-diffusion-webui-1  | CUDA Version 11.7.1
+stable-diffusion-webui-stable-diffusion-webui-1  | 
+stable-diffusion-webui-stable-diffusion-webui-1  | Container image Copyright (c) 2016-2023, NVIDIA CORPORATION & AFFILIATES. All rights reserved.
+stable-diffusion-webui-stable-diffusion-webui-1  | 
+stable-diffusion-webui-stable-diffusion-webui-1  | This container image and its contents are governed by the NVIDIA Deep Learning Container License.
+stable-diffusion-webui-stable-diffusion-webui-1  | By pulling and using the container, you accept the terms and conditions of this license:
+stable-diffusion-webui-stable-diffusion-webui-1  | https://developer.nvidia.com/ngc/nvidia-deep-learning-container-license
+stable-diffusion-webui-stable-diffusion-webui-1  | 
+stable-diffusion-webui-stable-diffusion-webui-1  | A copy of this license is made available in this container at /NGC-DL-CONTAINER-LICENSE for your convenience.
+stable-diffusion-webui-stable-diffusion-webui-1  | 
+stable-diffusion-webui-stable-diffusion-webui-1  | WARNING: The NVIDIA Driver was not detected.  GPU functionality will not be available.
+stable-diffusion-webui-stable-diffusion-webui-1  |    Use the NVIDIA Container Toolkit to start this container with GPU support; see
+stable-diffusion-webui-stable-diffusion-webui-1  |    https://docs.nvidia.com/datacenter/cloud-native/ .
+stable-diffusion-webui-stable-diffusion-webui-1  | 
+stable-diffusion-webui-stable-diffusion-webui-1  | 
+stable-diffusion-webui-stable-diffusion-webui-1  | ################################################################
+stable-diffusion-webui-stable-diffusion-webui-1  | Install script for stable-diffusion + Web UI
+stable-diffusion-webui-stable-diffusion-webui-1  | Tested on Debian 11 (Bullseye), Fedora 34+ and openSUSE Leap 15.4 or newer.
+stable-diffusion-webui-stable-diffusion-webui-1  | ################################################################
+stable-diffusion-webui-stable-diffusion-webui-1  | 
+stable-diffusion-webui-stable-diffusion-webui-1  | ################################################################
+stable-diffusion-webui-stable-diffusion-webui-1  | Running on appuser user
+stable-diffusion-webui-stable-diffusion-webui-1  | ################################################################
+stable-diffusion-webui-stable-diffusion-webui-1  | 
+stable-diffusion-webui-stable-diffusion-webui-1  | ################################################################
+stable-diffusion-webui-stable-diffusion-webui-1  | Repo already cloned, using it as install directory
+stable-diffusion-webui-stable-diffusion-webui-1  | ################################################################
+stable-diffusion-webui-stable-diffusion-webui-1  | 
+stable-diffusion-webui-stable-diffusion-webui-1  | ################################################################
+stable-diffusion-webui-stable-diffusion-webui-1  | Create and activate python venv
+stable-diffusion-webui-stable-diffusion-webui-1  | ################################################################
+stable-diffusion-webui-stable-diffusion-webui-1  | 
+stable-diffusion-webui-stable-diffusion-webui-1  | ################################################################
+stable-diffusion-webui-stable-diffusion-webui-1  | Launching launch.py...
+stable-diffusion-webui-stable-diffusion-webui-1  | ################################################################
+stable-diffusion-webui-stable-diffusion-webui-1  | glibc version is 2.35
+stable-diffusion-webui-stable-diffusion-webui-1  | Cannot locate TCMalloc. Do you have tcmalloc or google-perftool installed on your system? (improves CPU memory usage)
+stable-diffusion-webui-stable-diffusion-webui-1  | Python 3.10.12 (main, Jul 29 2024, 16:56:48) [GCC 11.4.0]
+stable-diffusion-webui-stable-diffusion-webui-1  | Version: v1.10.1
+stable-diffusion-webui-stable-diffusion-webui-1  | Commit hash: 82a973c04367123ae98bd9abdf80d9eda9b910e2
+stable-diffusion-webui-stable-diffusion-webui-1  | Traceback (most recent call last):
+stable-diffusion-webui-stable-diffusion-webui-1  |   File "/app/launch.py", line 48, in <module>
+stable-diffusion-webui-stable-diffusion-webui-1  |     main()
+stable-diffusion-webui-stable-diffusion-webui-1  |   File "/app/launch.py", line 39, in main
+stable-diffusion-webui-stable-diffusion-webui-1  |     prepare_environment()
+stable-diffusion-webui-stable-diffusion-webui-1  |   File "/app/modules/launch_utils.py", line 387, in prepare_environment
+stable-diffusion-webui-stable-diffusion-webui-1  |     raise RuntimeError(
+stable-diffusion-webui-stable-diffusion-webui-1  | RuntimeError: Torch is not able to use GPU; add --skip-torch-cuda-test to COMMANDLINE_ARGS variable to disable this check
+stable-diffusion-webui-stable-diffusion-webui-1 exited with code 0
+stable-diffusion-webui-stable-diffusion-webui-1  | 
+stable-diffusion-webui-stable-diffusion-webui-1  | ################################################################
+stable-diffusion-webui-stable-diffusion-webui-1  | Create and activate python venv
+stable-diffusion-webui-stable-diffusion-webui-1  | ################################################################
+stable-diffusion-webui-stable-diffusion-webui-1  | 
+stable-diffusion-webui-stable-diffusion-webui-1  | ################################################################
+stable-diffusion-webui-stable-diffusion-webui-1  | Launching launch.py...
+stable-diffusion-webui-stable-diffusion-webui-1  | ################################################################
+stable-diffusion-webui-stable-diffusion-webui-1  | glibc version is 2.35
+stable-diffusion-webui-stable-diffusion-webui-1  | Cannot locate TCMalloc. Do you have tcmalloc or google-perftool installed on your system? (improves CPU memory usage)
+stable-diffusion-webui-stable-diffusion-webui-1  | Python 3.10.12 (main, Jul 29 2024, 16:56:48) [GCC 11.4.0]
+stable-diffusion-webui-stable-diffusion-webui-1  | Version: v1.10.1
+stable-diffusion-webui-stable-diffusion-webui-1  | Commit hash: 82a973c04367123ae98bd9abdf80d9eda9b910e2
+stable-diffusion-webui-stable-diffusion-webui-1  | Traceback (most recent call last):
+stable-diffusion-webui-stable-diffusion-webui-1  |   File "/app/launch.py", line 48, in <module>
+stable-diffusion-webui-stable-diffusion-webui-1  |     main()
+stable-diffusion-webui-stable-diffusion-webui-1  |   File "/app/launch.py", line 39, in main
+stable-diffusion-webui-stable-diffusion-webui-1  |     prepare_environment()
+stable-diffusion-webui-stable-diffusion-webui-1  |   File "/app/modules/launch_utils.py", line 387, in prepare_environment
+stable-diffusion-webui-stable-diffusion-webui-1  |     raise RuntimeError(
+stable-diffusion-webui-stable-diffusion-webui-1  | RuntimeError: Torch is not able to use GPU; add --skip-torch-cuda-test to COMMANDLINE_ARGS variable to disable this check
+stable-diffusion-webui-stable-diffusion-webui-1 exited with code 0
+^CGracefully stopping... (press Ctrl+C again to force)
+[+] Running 1/0
+ ⠿ Container stable-diffusion-webui-stable-diffusion-webui-1  Stopped                                                         0.1s
 
-################################################################
-Install script for stable-diffusion + Web UI
-Tested on Debian 11 (Bullseye), Fedora 34+ and openSUSE Leap 15.4 or newer.
-################################################################
-
-################################################################
-Running on bala.d user
-################################################################
-
-################################################################
-Repo already cloned, using it as install directory
-################################################################
-
-################################################################
-Create and activate python venv
-################################################################
-Error: [Errno 13] Permission denied: '/home/bala.d/stable-diffusion-webui/venv'
-./webui.sh: line 217: venv/bin/python: No such file or directory
-
-################################################################
-ERROR: Cannot activate python venv, aborting...
-################################################################
-bala.d@opexwise-ml2:/home/bala.d/stable-diffusion-webui$ 
 
