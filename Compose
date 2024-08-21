@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  stable-diffusion-webui:
+    image: your-dockerhub-username/stable-diffusion-webui:latest  # Replace with your actual image name
+    ports:
+      - "7860:7860"
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=0  # Specifies GPU 0
+      - NVIDIA_DRIVER_CAPABILITIES=compute,utility
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+    command: ./webui.sh --api --listen
+
+networks:
+  default:
+    external:
+      name: iopex-network  # Use your pre-existing Docker network here
