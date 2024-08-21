@@ -1,0 +1,4 @@
+cd /home/bala.d/stable-diffusion-webui
+rm -rf venv
+python3.10 -m venv venv
+source venv/bin/activate
