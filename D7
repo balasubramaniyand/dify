@@ -1,0 +1,41 @@
+# Use a base image with Python and CUDA 12.1 support
+FROM nvidia/cuda:12.1.1-cudnn8-runtime-ubuntu22.04
+
+# Set environment variables
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    python3.10 \
+    python3.10-venv \
+    python3-pip \
+    git \
+    wget \
+    curl \
+    && rm -rf /var/lib/apt/lists/*
+
+# Create a non-root user and set permissions
+RUN useradd -m -s /bin/bash appuser && \
+    mkdir -p /app && chown -R appuser:appuser /app
+
+# Set the working directory
+WORKDIR /app
+
+# Switch to the non-root user
+USER appuser
+
+# Clone the Stable Diffusion Web UI repository
+RUN git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui.git .
+
+# Install Python dependencies, including the latest PyTorch with CUDA 12.1 support
+RUN python3.10 -m venv venv && \
+    . venv/bin/activate && \
+    pip install --upgrade pip && \
+    pip install torch==2.1.0+cu121 torchvision==0.16.0+cu121 torchaudio==2.1.0+cu121 --extra-index-url https://download.pytorch.org/whl/cu121 && \
+    pip install -r requirements.txt
+
+# Expose the port for the web UI
+EXPOSE 7860
+
+# Run the web UI as the non-root user using JSON array syntax
+CMD ["/bin/bash", "-c", ". venv/bin/activate && ./webui.sh --api --listen"]
